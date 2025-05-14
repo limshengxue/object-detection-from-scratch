@@ -73,3 +73,7 @@ cython_debug/
 
 # macOS
 .DS_Store
+
+
+# Dataset
+.yolo_v1/data

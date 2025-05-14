@@ -12,3 +12,9 @@
 
 # Dataset
 - Trained on PASCAL VOC Dataset / MS COCO (new)
+
+# Loss Function
+- Only penalise the box that has an object in it
+- Only penalise the box that is responsible for the ground truth box (has the highest IOU of any predictor in all cell)
+- When penalising the weight and height, square root was applied to ensure smaller and larger bounding box get equal penalty
+- 
