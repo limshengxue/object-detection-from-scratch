@@ -7,6 +7,7 @@ class VOCDataset(torch.utils.data.Dataset):
     def __init__(self, csv_file, img_dir, label_dir, S = 7, B = 2, C = 20, transform = None):
         self.annotations = pd.read_csv(csv_file)
         self.img_dir = img_dir
+        self.label_dir = label_dir
         self.transform = transform
         self.S = S
         self.B = B
@@ -46,7 +47,7 @@ class VOCDataset(torch.utils.data.Dataset):
             )
 
             if label_matrix[i, j, 20] == 0:
-                label_matrix[i, j, 20] == 1
+                label_matrix[i, j, 20] = 1
                 box_coordinates = torch.tensor(
                     [x_cell, y_cell, width_cell, height_cell]
                 )
