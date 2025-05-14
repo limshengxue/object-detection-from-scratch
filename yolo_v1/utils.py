@@ -197,7 +197,7 @@ def mean_average_precision(
         # torch.trapz for numerical integration
         average_precisions.append(torch.trapz(precisions, recalls))
 
-    return sum(average_precisions) / (len(average_precisions) + 1e-6)
+    return sum(average_precisions) / len(average_precisions)
 
 
 def plot_image(image, boxes):
@@ -298,7 +298,7 @@ def convert_cellboxes(predictions, S=7):
     by one, resulting in a slower but more readable implementation.
     """
 
-    # predictions = predictions.to("cpu")
+    predictions = predictions.to("cpu")
     batch_size = predictions.shape[0]
     predictions = predictions.reshape(batch_size, 7, 7, 30)
     bboxes1 = predictions[..., 21:25]
