@@ -77,3 +77,4 @@ cython_debug/
 
 # Dataset
 .yolo_v1/data
+/yolo_v1/data
